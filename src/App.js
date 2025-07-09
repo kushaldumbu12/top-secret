@@ -64,14 +64,16 @@ function App() {
       {showModal && (
         <div className="modal">
           <div className="modal-content">
-            <h2>Enter Password</h2>
-            <input
-              type="password"
-              value={password}
-              onChange={e => setPassword(e.target.value)}
-            />
-            <button onClick={handleStart}>Submit</button>
-          </div>
+  <h2>🔐 Enter Access Password</h2>
+  <input
+    type="password"
+    value={password}
+    onChange={e => setPassword(e.target.value)}
+    placeholder="Enter password"
+  />
+  <button onClick={handleStart}>Unlock</button>
+</div>
+
         </div>
       )}
 
