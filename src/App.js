@@ -1,8 +1,6 @@
-// App.js
 import { useState, useEffect } from 'react';
 import './App.css';
-import catImage from './assets/cat.jpg';
-
+import catImage from './assets/cat.jpeg';
 
 function App() {
   const [showModal, setShowModal] = useState(false);
@@ -24,7 +22,7 @@ function App() {
     if (started && progress < 100) {
       interval = setInterval(() => {
         setProgress(prev => {
-          const next = prev + 0.83; // 100% in ~2 min (120s / 0.83 ≈ 144 updates)
+          const next = prev + 0.83;
           return next >= 100 ? 100 : next;
         });
       }, 1000);
@@ -55,9 +53,12 @@ function App() {
   return (
     <div className="App">
       {!started && (
-        <button onClick={() => setShowModal(true)} className="btn">
-          Start Mission
-        </button>
+        <div className="center-box">
+          <h1>Click the button to show top secret information</h1>
+          <button onClick={() => setShowModal(true)} className="btn">
+            Decrypt Intel
+          </button>
+        </div>
       )}
 
       {showModal && (
@@ -75,17 +76,19 @@ function App() {
       )}
 
       {started && !showCat && (
-        <div className="progress-box">
-          <p>{message}</p>
+        <div className="center-box">
+          <p className="message">{message}</p>
           <div className="progress-bar">
             <div className="fill" style={{ width: `${progress}%` }}></div>
           </div>
           <p>{Math.floor(progress)}%</p>
+          <p className="disclaimer">⚠ Do not minimize, exit, or switch tabs and screens during decryption...</p>
         </div>
       )}
 
       {showCat && (
         <div className="cat-screen">
+          <div className="fool-text">YOU FOOL...!</div>
           <img src={catImage} alt="Cat Meme" />
         </div>
       )}
