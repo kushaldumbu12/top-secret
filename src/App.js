@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import './App.css';
-import catImage from './assets/cat.jpeg';
+import catImage from './assets/cat.jpg';
 
 function App() {
   const [showModal, setShowModal] = useState(false);
